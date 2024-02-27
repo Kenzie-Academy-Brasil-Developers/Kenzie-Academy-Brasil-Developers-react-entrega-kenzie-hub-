@@ -1,0 +1,48 @@
+@import "../../styles/globalStyle.scss";
+
+.container {
+  display: flex;
+  width: 100%;
+  .content {
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    width: 396px;
+    background-color: var(--grey-3);
+    color: var(--grey-0);
+    .textContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      .title {
+        @extend %h2;
+        margin: 0 auto;
+        padding-bottom: 2rem;
+      }
+      .paragraph {
+        @extend %headline;
+        color: var(--grey-1);
+      }
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  .paragraph {
+    @extend %headline;
+    color: var(--grey-1);
+  }
+
+  .buttonRegister {
+    background-color: var(--color-primary-negative);
+    padding: 1rem;
+    color: var(--grey-0);
+    &:hover {
+      background-color: var(--color-primary);
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@import "../../styles/globalStyle.scss";
+
+.headerContent {
+  display: flex;
+  height: 100%;
+  width: 396px;
+  justify-content: center;
+  align-items: center;
+  &.justify {
+    justify-content: space-between;
+  }
+  &.isDashboard {
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .buttonLogout {
+    display: flex;
+    margin-left: 620px;
+    padding: 1rem;
+    background-color: var(--grey-3);
+    color: var(--grey-0);
+    @extend %headlineBold;
+  }
+}
+
+.headerTitle {
+  @extend %h1;
+  color: var(--color-primary);
+  padding: 0.5rem;
+}

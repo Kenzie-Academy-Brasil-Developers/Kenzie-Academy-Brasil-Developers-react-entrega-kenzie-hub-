@@ -1,0 +1,40 @@
+@import "../../styles/globalStyle.scss";
+
+.dashboardContainer {
+  color: white;
+  width: 100%;
+
+  .dashboardContent {
+    border-block: 2px solid var(--grey-3);
+    padding: 0.5rem;
+    .welcomeMessage {
+      width: 800px;
+      display: flex;
+      justify-content: space-between;
+      height: 100px;
+      align-items: center;
+      margin: 0 auto;
+      .title {
+        @extend %h1;
+      }
+      .moduleInfo {
+        @extend %headlineBold;
+        color: var(--grey-1);
+      }
+    }
+  }
+  .developmentMessage {
+    width: 800px;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 0;
+    .developmentWarning{
+        @extend %h1;
+    }
+    .developmentInfo{
+        @extend %p;
+    }
+  }
+}
