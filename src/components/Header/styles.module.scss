@@ -29,3 +29,11 @@
   color: var(--color-primary);
   padding: 0.5rem;
 }
+
+@media (max-width: 795px) {
+  .headerContent{
+    .buttonLogout{
+      margin-left: 50%;
+    }
+  }
+}
