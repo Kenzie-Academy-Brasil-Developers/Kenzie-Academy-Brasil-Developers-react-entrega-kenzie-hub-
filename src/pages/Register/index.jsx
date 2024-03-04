@@ -2,42 +2,54 @@ import { useForm } from "react-hook-form";
 import { Input } from "../../components/forms/Input";
 import { Select } from "../../components/forms/Select";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { formSchema } from "../../components/forms/Input/formSchema";
+import { RegisterSchema} from "./RegisterSchema";
 import { ToastContainer, toast, Bounce } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 import styles from "./styles.module.scss";
 import { userApi } from "../../services/api";
+import { Header } from "../../components/Header";
 
-export const Register = ({setButton}) => {
+export const Register = () => {
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(RegisterSchema),
   });
 
   const postUsers = async (formData) => {
+    console.log(formData)
     try {
       const { data } = await userApi.post("/users", formData);
-      setButton(false)
       navigate("/");
     } catch (error) {
-       toast.error("Falha em cadastrar");
+      toast.error("Falha em cadastrar");
+
     }
   };
 
   const onSubmit = async (data) => {
-      postUsers(data)
-      toast.success("Cadastro realizado com sucesso!"); 
-  }
+    postUsers(data);
+    toast.success("Cadastro realizado com sucesso!");
+  };
 
+  const home = () => {
+    navigate("/");
+  };
 
   return (
     <>
       <div className={styles.container}>
+        <div className={styles.header}>
+          <Header isButton={true}>
+            <button className={styles.button} onClick={() => home()}>
+              Voltar
+            </button>
+          </Header>
+        </div>
         <div className={styles.content}>
           <div className={styles.registerContainer}>
             <div className={styles.textContainer}>
@@ -93,8 +105,8 @@ export const Register = ({setButton}) => {
                 label="Selecionar módulo"
                 {...register("course_module")}
                 options={[
-                  { label: "Primeiro Módulo", value: "primeiroModulo" },
-                  { label: "Segundo Módulo", value: "segundoModulo" },
+                  { label: "Primeiro Módulo", value: "Primeiro módulo (Introdução ao Frontend)" },
+                  { label: "Segundo Módulo", value: "Segundo módulo (Frontend Avançado)" },
                 ]}
               />
               <p className={styles.paragraph}>

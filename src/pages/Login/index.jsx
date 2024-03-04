@@ -1,46 +1,37 @@
-import { LoginForm } from "../../components/forms/LoginForm";
+import { useNavigate } from "react-router-dom";
+import { Header } from "../../components/Header";
 import styles from "./styles.module.scss";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { LoginForm } from "./LoginForm";
 
-export const Login = ({ setButton, setUser }) => {
+export const Login = () => {
   const navigate = useNavigate();
 
   const pageRegister = () => {
     navigate("/register");
-    setButton(true);
   };
- 
 
   return (
-    <>
-      <div className={styles.container}>
-        <div className={styles.content}>
-          <div className={styles.titleContainer}>
-            <h2 className={styles.title}>Login</h2>
-          </div>
-          <section className={styles.sectionContainer}>
-            <div className={styles.sectionContent}>
-              <LoginForm setUser={setUser} />
-              <div className={styles.registerContainer}>
-                <Link
-                  onClick={() => setButton(true)}
-                  to={"/register"}
-                  className={styles.toRegister}
-                >
-                  Ainda não possui uma conta?
-                </Link>
-                <button
-                  onClick={pageRegister}
-                  className={styles.buttonRegister}
-                >
-                  Cadastre-se
-                </button>
-              </div>
-            </div>
-          </section>
+    <div className={styles.container}>
+      <Header></Header>
+      <div className={styles.loginContainer}>
+        <div className={styles.titleContainer}>
+          <h2 className={styles.title}>Login</h2>
         </div>
+        <section className={styles.sectionContainer}>
+          <div className={styles.sectionContent}>
+            <LoginForm />
+            <div className={styles.registerContainer}>
+              <Link to={"/register"} className={styles.toRegister}>
+                Ainda não possui uma conta?
+              </Link>
+              <button onClick={pageRegister} className={styles.buttonRegister}>
+                Cadastre-se
+              </button>
+            </div>
+          </div>
+        </section>
       </div>
-    </>
+    </div>
   );
 };

@@ -1,21 +1,7 @@
 @import url(./reset.scss);
-@import url(./globalStyle.scss);
-@import "../styles/globalStyle.scss";
+@import url(./globalStyles.scss);
 
 .appContainer {
-  padding: 1rem 0;
   background-color: var(--grey-4);
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  &.yes{
-    justify-content:unset;
-  }
-
-}
-button {
-  cursor: pointer;
-  border-radius: 4px;
-  @extend %p;
 }

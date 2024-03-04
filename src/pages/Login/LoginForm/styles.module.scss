@@ -1,0 +1,18 @@
+@import "../../../styles/globalStyles.scss";
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    .buttonLogin {
+      background-color: var(--color-primary);
+      padding: 1rem;
+      color: var(--grey-0);
+      border-radius: 3px;
+    }
+     .paragraph {
+      @extend %headline;
+      color: var(--grey-1);
+    }
+  }
+  

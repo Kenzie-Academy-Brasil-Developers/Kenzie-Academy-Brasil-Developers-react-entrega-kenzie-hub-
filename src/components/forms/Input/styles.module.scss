@@ -1,4 +1,4 @@
-@import "../../../styles/globalStyle.scss";
+@import "../../../styles/globalStyles.scss";
 
 .inputContainer {
   display: flex;
@@ -13,6 +13,7 @@
     padding: 0.6rem;
     background-color: var(--grey-2);
     border: 0.5px solid transparent;
+    border-radius: 2px;
     color: var(--grey-1);
     outline: none;
     &:hover {

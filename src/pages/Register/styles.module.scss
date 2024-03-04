@@ -1,8 +1,21 @@
-@import "../../styles/globalStyle.scss";
+@import "../../styles/globalStyles.scss";
 
 .container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
+  padding: 2rem 1rem;
+  .header {
+    width: 396px;
+    .button {
+      padding: 1rem;
+      background-color: var(--grey-3);
+      color: var(--grey-0);
+      @extend %headlineBold;
+      border-radius: 4px;
+    }
+  }
   .content {
     margin: 0 auto;
     padding: 2rem 1rem;

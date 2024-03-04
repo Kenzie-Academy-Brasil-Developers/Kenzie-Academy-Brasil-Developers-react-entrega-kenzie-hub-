@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const formSchema = z
+export const RegisterSchema = z
   .object({
     name: z.string().min(1, "O nome é obrigatório"),
     email: z
@@ -21,7 +21,7 @@ export const formSchema = z
     bio: z.string().min(1, "A bio é obrigatória"),
     contact: z.string().min(1, "O contato é obrigatório"),
     course_module: z.enum(
-      ["primeiroModulo", "segundoModulo"],
+      ["Primeiro módulo (Introdução ao Frontend)", "Segundo módulo (Frontend Avançado)"],
       "O módulo do curso é obrigatório"
     ),
   })
