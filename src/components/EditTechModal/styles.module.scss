@@ -61,3 +61,14 @@
     }
   }
 }
+
+@media (max-width: 800px) {
+  .modalContent {
+    max-width: 350px;
+    max-height: 350px;
+    .formContainer {
+      padding: 1rem;
+      gap: 1.1rem;
+    }
+  }
+}

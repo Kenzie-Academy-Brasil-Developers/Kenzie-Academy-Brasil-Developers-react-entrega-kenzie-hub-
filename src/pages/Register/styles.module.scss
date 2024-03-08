@@ -9,7 +9,7 @@
   .header {
     width: 396px;
     .button {
-      padding: 1rem;
+      padding: 0.9rem 1rem;
       background-color: var(--grey-3);
       color: var(--grey-0);
       @extend %headlineBold;
@@ -49,7 +49,7 @@
 
   .paragraph {
     @extend %headline;
-    color: var(--grey-1);
+    color: var(--negative);
   }
 
   .buttonRegister {

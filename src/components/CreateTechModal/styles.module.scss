@@ -36,15 +36,26 @@
     .paragraph {
       @extend %headline;
       color: var(--grey-1);
-      padding-top: 1rem ;
-    }
-    }
-    .button {
-      padding: 1rem 2rem;
-      width: 100%;
-      border-radius: 4px;
-      background-color: var(--color-primary);
-      color: var(--grey-0);
-      cursor: pointer;
+      padding-top: 1rem;
     }
   }
+  .button {
+    padding: 1rem 2rem;
+    width: 100%;
+    border-radius: 4px;
+    background-color: var(--color-primary);
+    color: var(--grey-0);
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 800px) {
+  .modalContent {
+    max-width: 350px;
+    max-height: 350px;
+    .formContainer {
+      padding: 1rem;
+      gap: 1.1rem;
+    }
+  }
+}

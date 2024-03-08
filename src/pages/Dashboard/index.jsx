@@ -6,11 +6,10 @@ import { useNavigate } from "react-router-dom";
 import { TechCard } from "../../components/TechCard";
 import { TechContext } from "../provides/TechContext";
 import { CreateTechModal } from "../../components/CreateTechModal";
-import { EditTechModal } from "../../components/EditTechModal";
 
 export const Dashboard = () => {
   const { setUser, user } = useContext(ExampleContext);
-  const { setOpen, open } = useContext(TechContext);
+  const { open } = useContext(TechContext);
   const navigate = useNavigate();
 
   const handleLogout = () => {

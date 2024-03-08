@@ -4,23 +4,21 @@ import { TechContext } from "../../pages/provides/TechContext";
 import { Select } from "../forms/Select";
 import { useForm } from "react-hook-form";
 import { Input } from "../forms/Input";
-import { zodResolver } from "@hookform/resolvers/zod";
-import editTechSchema from "./EditTechSchema"
+// import { zodResolver } from "@hookform/resolvers/zod";
+// import editTechSchema from "./EditTechSchema"
 
 export const EditTechModal = () => {
-  const {updateTech, tech, setOpenEdit } = useContext(TechContext);
+  const { editingTech, tech, setOpenEdit } = useContext(TechContext);
 
   const {
     handleSubmit,
     formState: { errors },
     register,
     reset,
-  } = useForm({
-    resolver: zodResolver(editTechSchema), 
-  });
+  } = useForm({});
 
   const onSubmit = (data) => {
-    updateTech(data);
+    editingTech(data);
     reset();
     setOpenEdit(false);
   };
@@ -46,7 +44,9 @@ export const EditTechModal = () => {
               label="Nome"
               type="text"
               {...register("title")}
-              placeholder="Material UI"
+              placeholder= "Material UI"
+              disabled={true}
+              
             />
           </div>
           <div className={styles.selectContainer}>

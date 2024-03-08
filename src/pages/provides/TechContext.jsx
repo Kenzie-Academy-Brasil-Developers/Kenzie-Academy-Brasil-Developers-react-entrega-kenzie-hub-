@@ -10,6 +10,7 @@ export const TechProvider = ({ children }) => {
   const [tech, setTech] = useState(user.techs);
   const [open, setOpen] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
+  const [techId, setTechId] = useState({});
 
   const addTech = async (formValue) => {
     const token = localStorage.getItem("@TOKEN");
@@ -43,20 +44,24 @@ export const TechProvider = ({ children }) => {
     }
   };
 
-  const updateTech = async ( formValue) => {
-   const token = localStorage.getItem("@TOKEN");
+  const editingTech = async (formValue) => {
+    const token = localStorage.getItem("@TOKEN");
     try {
       const { data } = await userApi.put(`/users/techs/${techId}`, formValue, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-     
+      const newTechs = [...tech];
+      const index = newTechs.findIndex((tecnology ) => tecnology.id == data.id);
+      newTechs.splice(index, 1, data);
 
+      setTech(newTechs);
     } catch (error) {
       console.error(error);
     }
   };
+
   return (
     <TechContext.Provider
       value={{
@@ -70,7 +75,9 @@ export const TechProvider = ({ children }) => {
         setOpenEdit,
         addTech,
         deleteTech,
-        updateTech,
+        editingTech,
+        techId,
+        setTechId,
       }}
     >
       {children}
