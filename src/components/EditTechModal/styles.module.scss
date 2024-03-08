@@ -1,0 +1,63 @@
+@import "../../styles/globalStyles.scss";
+
+.modalContent {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--grey-3);
+  width: 100%;
+  max-width: 390px;
+  border-radius: 4px;
+  padding-bottom: 1rem;
+
+  .headerContainer {
+    background-color: var(--grey-2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem;
+    border-radius: 4px 4px 0 0;
+
+    .title {
+      @extend %h2;
+    }
+    .closeButton {
+      background-color: transparent;
+      color: var(--grey-1);
+      cursor: pointer;
+    }
+  }
+  .formContainer {
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .paragraph {
+      @extend %headline;
+      color: var(--grey-0);
+      padding-bottom: 1rem;
+    }
+    .textInput {
+      width: 100%;
+      padding: 0.6rem;
+      background-color: var(--grey-2);
+      outline: none;
+      border: 1px solid transparent;
+      color: var(--grey-0);
+      border-radius: 4px;
+      &:hover {
+        border: 0.5px solid var(--grey-0);
+      }
+    }
+    .button {
+      padding: 1rem 2rem;
+      width: 100%;
+      border-radius: 4px;
+      background-color: var(--color-primary);
+      color: var(--grey-0);
+      cursor: pointer;
+    }
+  }
+}

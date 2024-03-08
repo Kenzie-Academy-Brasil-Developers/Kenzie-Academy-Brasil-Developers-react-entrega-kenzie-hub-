@@ -21,7 +21,6 @@ export const Register = () => {
   });
 
   const postUsers = async (formData) => {
-    console.log(formData)
     try {
       const { data } = await userApi.post("/users", formData);
       navigate("/");
@@ -107,7 +106,8 @@ export const Register = () => {
                 options={[
                   { label: "Primeiro Módulo", value: "Primeiro módulo (Introdução ao Frontend)" },
                   { label: "Segundo Módulo", value: "Segundo módulo (Frontend Avançado)" },
-                ]}
+                  { label: "Terceiro Módulo", value: "Terceiro módulo (Introdução ao Backend)" },
+                  { label: "Quarto Módulo", value: "Quarto módulo (Backend Avançado)" },]}
               />
               <p className={styles.paragraph}>
                 {errors.course_module?.message}

@@ -10,11 +10,11 @@
   }
   .input {
     @extend %p;
-    padding: 0.6rem;
+    padding: 0.8rem;
     background-color: var(--grey-2);
     border: 0.5px solid transparent;
-    border-radius: 2px;
-    color: var(--grey-1);
+    border-radius: 4px;
+    color: var(--grey-0);
     outline: none;
     &:hover {
       border: 0.5px solid var(--grey-0);

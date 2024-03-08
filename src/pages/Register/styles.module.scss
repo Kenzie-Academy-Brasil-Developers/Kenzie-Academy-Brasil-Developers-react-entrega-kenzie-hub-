@@ -27,6 +27,8 @@
       flex-direction: column;
       align-items: center;
       gap: 0.5rem;
+      padding-block: 1.5rem ;
+      padding-bottom: 2rem;
       .title {
         @extend %h2;
         margin: 0 auto;
@@ -43,7 +45,7 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 
   .paragraph {
     @extend %headline;

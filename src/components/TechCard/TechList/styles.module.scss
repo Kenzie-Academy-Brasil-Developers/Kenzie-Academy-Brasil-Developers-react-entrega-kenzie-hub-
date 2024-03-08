@@ -1,0 +1,25 @@
+@import "../../../styles/globalStyles.scss";
+
+.techListItem {
+  background-color: var(--grey-4);
+  padding: 1rem;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .techTitle {
+    @extend %headlineBold
+  }
+  .techActionsContainer {
+    display: flex;
+    gap: 1rem;
+    .techStatus {
+      @extend %headline;
+      color: var(--grey-1);
+    }
+    .techEditButton,
+    .techDeleteButton {
+      cursor: pointer;
+    }
+  }
+}

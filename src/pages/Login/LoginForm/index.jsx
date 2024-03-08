@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Input } from "../../../components/forms/Input";
 import { userApi } from "../../../services/api";
 import { useContext } from "react";
-import { ExampleContext } from "../../provides/context";
+import { ExampleContext } from "../../provides/UserContext";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 export const LoginForm = () => {
@@ -34,6 +34,7 @@ export const LoginForm = () => {
 
   const onSubmit = (formData) => {
     postUsers(formData);
+    setUser(formData);
   };
   return (
     <>

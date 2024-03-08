@@ -1,11 +1,16 @@
 import { useContext } from "react";
 import styles from "./styles.module.scss";
-import { ExampleContext } from "../provides/context";
+import { ExampleContext } from "../provides/UserContext";
 import { Header } from "../../components/Header";
 import { useNavigate } from "react-router-dom";
+import { TechCard } from "../../components/TechCard";
+import { TechContext } from "../provides/TechContext";
+import { CreateTechModal } from "../../components/CreateTechModal";
+import { EditTechModal } from "../../components/EditTechModal";
 
 export const Dashboard = () => {
   const { setUser, user } = useContext(ExampleContext);
+  const { setOpen, open } = useContext(TechContext);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -15,6 +20,7 @@ export const Dashboard = () => {
   };
   return (
     <>
+      {open ? <CreateTechModal /> : null}
       <div className={styles.headerContainer}>
         <Header isButton={true}>
           <button className={styles.button} onClick={() => handleLogout()}>
@@ -29,15 +35,8 @@ export const Dashboard = () => {
             <p className={styles.moduleInfo}>{user?.course_module}</p>
           </div>
         </div>
-        <div className={styles.developmentMessage}>
-          <h3 className={styles.developmentWarning}>
-            Que pena! Estamos em desenvolvimento :(
-          </h3>
-          <h4 className={styles.developmentInfo}>
-            Nossa aplicação está em desenvolvimento, em breve teremos novidades
-          </h4>
-        </div>
       </div>
+      <TechCard />
     </>
   );
 };
