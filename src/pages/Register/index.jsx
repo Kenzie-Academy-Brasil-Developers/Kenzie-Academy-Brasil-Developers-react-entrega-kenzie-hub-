@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { Input } from "../../components/forms/Input";
 import { Select } from "../../components/forms/Select";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { RegisterSchema} from "./RegisterSchema";
+import { RegisterSchema } from "./RegisterSchema";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
@@ -23,16 +23,17 @@ export const Register = () => {
   const postUsers = async (formData) => {
     try {
       const { data } = await userApi.post("/users", formData);
+      toast.success("Cadastro realizado com sucesso!");
       navigate("/");
     } catch (error) {
-      toast.error("Falha em cadastrar");
-
+      error.response.data.message === "Email already exists"
+        ? toast.error("Email já cadastrado")
+        : toast.error("Falha em cadastrar");
     }
   };
 
   const onSubmit = async (data) => {
-    postUsers(data);
-    toast.success("Cadastro realizado com sucesso!");
+    await postUsers(data);
   };
 
   const home = () => {
@@ -104,10 +105,23 @@ export const Register = () => {
                 label="Selecionar módulo"
                 {...register("course_module")}
                 options={[
-                  { label: "Primeiro Módulo", value: "Primeiro módulo (Introdução ao Frontend)" },
-                  { label: "Segundo Módulo", value: "Segundo módulo (Frontend Avançado)" },
-                  { label: "Terceiro Módulo", value: "Terceiro módulo (Introdução ao Backend)" },
-                  { label: "Quarto Módulo", value: "Quarto módulo (Backend Avançado)" },]}
+                  {
+                    label: "Primeiro Módulo",
+                    value: "Primeiro módulo (Introdução ao Frontend)",
+                  },
+                  {
+                    label: "Segundo Módulo",
+                    value: "Segundo módulo (Frontend Avançado)",
+                  },
+                  {
+                    label: "Terceiro Módulo",
+                    value: "Terceiro módulo (Introdução ao Backend)",
+                  },
+                  {
+                    label: "Quarto Módulo",
+                    value: "Quarto módulo (Backend Avançado)",
+                  },
+                ]}
               />
               <p className={styles.paragraph}>
                 {errors.course_module?.message}

@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { userApi } from "../../services/api";
-import { useNavigate } from "react-router-dom";
 import { ExampleContext } from "./UserContext";
 
 export const TechContext = createContext();
@@ -53,7 +52,7 @@ export const TechProvider = ({ children }) => {
         },
       });
       const newTechs = [...tech];
-      const index = newTechs.findIndex((tecnology ) => tecnology.id == data.id);
+      const index = newTechs.findIndex((tecnology) => tecnology.id == data.id);
       newTechs.splice(index, 1, data);
 
       setTech(newTechs);

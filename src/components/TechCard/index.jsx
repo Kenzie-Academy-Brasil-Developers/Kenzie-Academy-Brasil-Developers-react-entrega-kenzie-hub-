@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { TechList } from "./TechList";
 import { TechContext } from "../../pages/provides/TechContext";
 import styles from "./styles.module.scss";
-import { IoAdd } from "react-icons/io5";
 import { EditTechModal } from "../EditTechModal";
 
 export const TechCard = () => {

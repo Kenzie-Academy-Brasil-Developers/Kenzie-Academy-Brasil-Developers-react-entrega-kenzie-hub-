@@ -35,7 +35,7 @@
     gap: 1.5rem;
     .paragraph {
       @extend %headline;
-      color: var(--grey-1);
+      color: var(--negative);
       padding-top: 1rem;
     }
   }

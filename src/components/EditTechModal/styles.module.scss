@@ -34,11 +34,6 @@
     flex-direction: column;
     gap: 1.5rem;
 
-    .paragraph {
-      @extend %headline;
-      color: var(--grey-0);
-      padding-bottom: 1rem;
-    }
     .textInput {
       width: 100%;
       padding: 0.6rem;

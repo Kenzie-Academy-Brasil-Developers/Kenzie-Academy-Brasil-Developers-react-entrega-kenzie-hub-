@@ -4,11 +4,9 @@ import { TechContext } from "../../pages/provides/TechContext";
 import { Select } from "../forms/Select";
 import { useForm } from "react-hook-form";
 import { Input } from "../forms/Input";
-// import { zodResolver } from "@hookform/resolvers/zod";
-// import editTechSchema from "./EditTechSchema"
 
 export const EditTechModal = () => {
-  const { editingTech, tech, setOpenEdit } = useContext(TechContext);
+  const { editingTech, setOpenEdit } = useContext(TechContext);
 
   const {
     handleSubmit,
