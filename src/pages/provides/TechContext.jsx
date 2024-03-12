@@ -1,12 +1,11 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { userApi } from "../../services/api";
 import { ExampleContext } from "./UserContext";
 
 export const TechContext = createContext();
 
 export const TechProvider = ({ children }) => {
-  const { user, setUser } = useContext(ExampleContext);
-  const [tech, setTech] = useState(user.techs);
+  const { user, setUser, tech, setTech} = useContext(ExampleContext);
   const [open, setOpen] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
   const [techId, setTechId] = useState({});

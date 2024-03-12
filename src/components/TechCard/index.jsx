@@ -3,10 +3,13 @@ import { TechList } from "./TechList";
 import { TechContext } from "../../pages/provides/TechContext";
 import styles from "./styles.module.scss";
 import { EditTechModal } from "../EditTechModal";
+import { ExampleContext } from "../../pages/provides/UserContext";
 
 export const TechCard = () => {
-  const { setOpen, tech, openEdit } = useContext(TechContext);
+  const { setOpen, openEdit } = useContext(TechContext);
+  const { tech } = useContext(ExampleContext);
 
+  
   return (
     <div className={styles.techSectionContainer}>
       {openEdit ? <EditTechModal /> : null}
