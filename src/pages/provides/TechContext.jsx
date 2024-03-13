@@ -5,7 +5,8 @@ import { ExampleContext } from "./UserContext";
 export const TechContext = createContext();
 
 export const TechProvider = ({ children }) => {
-  const { user, setUser, tech, setTech} = useContext(ExampleContext);
+  const { user, setUser } = useContext(ExampleContext);
+  const [tech, setTech] = useState(user.techs);
   const [open, setOpen] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
   const [techId, setTechId] = useState({});

@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 export const ExampleContext = createContext();
 
 export const ContextProvider = ({ children }) => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [tech, setTech] = useState(user.techs ? user.techs : []);
+
 
   const navigate = useNavigate();
   const pathname = window.location.pathname;
@@ -37,7 +37,7 @@ export const ContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <ExampleContext.Provider value={{ tech, setTech, user, setUser, loading }}>
+    <ExampleContext.Provider value={{ user, setUser, loading }}>
       {children}
     </ExampleContext.Provider>
   );

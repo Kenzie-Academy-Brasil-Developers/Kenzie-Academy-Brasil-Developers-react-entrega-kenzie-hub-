@@ -6,8 +6,7 @@ import { EditTechModal } from "../EditTechModal";
 import { ExampleContext } from "../../pages/provides/UserContext";
 
 export const TechCard = () => {
-  const { setOpen, openEdit } = useContext(TechContext);
-  const { tech } = useContext(ExampleContext);
+  const { setOpen, tech, openEdit } = useContext(TechContext);
 
   
   return (
